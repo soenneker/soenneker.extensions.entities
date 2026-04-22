@@ -1,11 +1,10 @@
-﻿using Soenneker.Tests.Unit;
-using Xunit;
+using Soenneker.Tests.Unit;
 
 namespace Soenneker.Extensions.Entities.Tests;
 
 public sealed class EntitiesExtensionTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
