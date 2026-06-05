@@ -25,6 +25,12 @@ public static class EntitiesExtension
         return documentId;
     }
 
+    /// <summary>
+    /// Executes the to partition key operation.
+    /// </summary>
+    /// <typeparam name="T">The T type.</typeparam>
+    /// <param name="entity">The entity.</param>
+    /// <returns>The result of the operation.</returns>
     [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string ToPartitionKey<T>(this T entity) where T : IEntity
