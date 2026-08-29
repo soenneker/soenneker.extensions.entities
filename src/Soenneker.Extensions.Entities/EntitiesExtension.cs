@@ -26,11 +26,11 @@ public static class EntitiesExtension
     }
 
     /// <summary>
-    /// Executes the to partition key operation.
+    /// Builds the Cosmos DB partition-key text represented by the entity.
     /// </summary>
-    /// <typeparam name="T">The T type.</typeparam>
-    /// <param name="entity">The entity.</param>
-    /// <returns>The result of the operation.</returns>
+    /// <typeparam name="T">The sequence element or result type.</typeparam>
+    /// <param name="entity">The entity whose partition key is required.</param>
+    /// <returns>The serialized partition-key text.</returns>
     [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string ToPartitionKey<T>(this T entity) where T : IEntity
