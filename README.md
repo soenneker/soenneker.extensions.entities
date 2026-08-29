@@ -4,10 +4,24 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.extensions.entities/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.extensions.entities/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Extensions.Entities
-### A collection of helpful Entities extension methods
+A collection of helpful Entities extension methods.
 
 ## Installation
 
-```
+```bash
 dotnet add package Soenneker.Extensions.Entities
 ```
+
+## Quick start
+
+```csharp
+using Soenneker.Extensions.Entities;
+
+// Given an existing T named entity:
+var result = entity.ToDocumentId();
+```
+
+## Common operations
+
+- `ToDocumentId()` - Shorthand for SplitId on the Id of the entity. Returns will not return the partitionKey unless it's the same as the documentId.
+- `ToPartitionKey()` - Splits the entity's compound ID and returns its partition-key component.
