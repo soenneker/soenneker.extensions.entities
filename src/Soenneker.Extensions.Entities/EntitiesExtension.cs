@@ -1,4 +1,5 @@
-﻿using Soenneker.Entities.Entity.Abstract;
+﻿using System;
+using Soenneker.Entities.Entity.Abstract;
 using Soenneker.Extensions.String;
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
@@ -20,9 +21,9 @@ public static class EntitiesExtension
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string ToDocumentId<T>(this T entity) where T : IEntity
     {
-        (_, string documentId) = entity.Id.ToSplitId();
-
-        return documentId;
+        string id = entity.Id;
+        (_, Range document) = id.ToSplitIdRanges();
+        return id[document];
     }
 
     /// <summary>
@@ -35,8 +36,8 @@ public static class EntitiesExtension
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string ToPartitionKey<T>(this T entity) where T : IEntity
     {
-        (string partitionKey, _) = entity.Id.ToSplitId();
-
-        return partitionKey;
+        string id = entity.Id;
+        (Range partition, _) = id.ToSplitIdRanges();
+        return id[partition];
     }
 }
